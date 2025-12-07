@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem(id, el.value);
     });
   });
-
+  loadQuoteOfTheDay();
   // Handle form submit (NO reload)
   const form = document.getElementById("plannerForm");
 
@@ -57,7 +57,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ---- Upload + Screenshot Helper ----
+// Fetch Quote of the Day
+async function loadQuoteOfTheDay() {
+  const quoteField = document.getElementById("quote");
+
+  // Don't overwrite if user already added text
+  if (localStorage.getItem("quote")) return;
+
+  try {
+    const res = await fetch("https://api.api-ninjas.com/v2/quotes?category=inspirational", {
+      headers: { "X-Api-Key": window.ENV.QUOTE_API_KEY }
+    });
+
+    const data = await res.json();
+    const quote = `${data[0].quote} — ${data[0].author}`;
+
+    quoteField.value = quote;
+    localStorage.setItem("quote", quote);
+
+  } catch (err) {
+    console.error("Quote load failed:", err);
+  }
+}
+
+
 
 function clonePlannerForScreenshot() {
   const original = document.getElementById("planner");
