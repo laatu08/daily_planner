@@ -57,6 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+function showLoading() {
+  document.getElementById("loadingOverlay").classList.remove("hidden");
+}
+
+function hideLoading() {
+  document.getElementById("loadingOverlay").classList.add("hidden");
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+
 // Fetch Quote of the Day
 async function loadQuoteOfTheDay() {
   const quoteField = document.getElementById("quote");
@@ -142,6 +162,7 @@ async function fetchUrl() {
 // ---- Email Sending Logic ----
 async function exportAndSend() {
   console.log("Running exportAndSend...");
+  showLoading()
 
   const toEmail = localStorage.getItem("email");
   // if (!toEmail) {
@@ -160,5 +181,6 @@ async function exportAndSend() {
   });
 
   console.log("Email sent!");
-
+  showToast("Your planner has been sent successfully!");
+  hideLoading();
 }
