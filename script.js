@@ -58,33 +58,63 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ---- Upload + Screenshot Helper ----
+
+function clonePlannerForScreenshot() {
+  const original = document.getElementById("planner");
+  const clone = original.cloneNode(true);
+
+  // Replace textareas with styled divs
+  clone.querySelectorAll("textarea").forEach((textarea, i) => {
+    const div = document.createElement("div");
+    div.style.minHeight = textarea.style.height || "80px";
+    div.style.border = "1px solid #ccc";
+    div.style.padding = "8px";
+    div.style.whiteSpace = "pre-wrap";
+    div.style.wordWrap = "break-word";
+    div.style.overflowWrap = "break-word";
+    div.style.borderRadius = "6px";
+    div.style.background = "rgba(254, 255, 255, 0.6)";
+
+    div.innerText = textarea.value;
+
+    textarea.replaceWith(div);
+  });
+
+  // Place clone offscreen
+  clone.style.position = "absolute";
+  clone.style.top = "-9999px";
+  document.body.appendChild(clone);
+
+  return clone;
+}
+
 async function fetchUrl() {
-  const element = document.getElementById("planner");
+  const clone = clonePlannerForScreenshot();
 
-  const canvas = await html2canvas(element);
-  const imgData = canvas.toDataURL("image/png");
-
+  const canvas = await html2canvas(clone);
   const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/png"));
+
+  document.body.removeChild(clone);  // cleanup
 
   const formData = new FormData();
   formData.append("planner", blob, "planner.png");
 
-  let finalUrl = imgData;
-
   try {
     const uploadRes = await fetch("http://localhost:3000/upload", {
       method: "POST",
-      body: formData
+      body: formData,
     });
 
     const data = await uploadRes.json();
-    finalUrl = data.url;
-  } catch (e) {
-    console.warn("Upload failed, using fallback");
-  }
+    return data.url;
 
-  return finalUrl;
+  } catch (err) {
+    console.error("Upload error", err);
+    alert("Upload failed");
+    return null;
+  }
 }
+
 
 // ---- Email Sending Logic ----
 async function exportAndSend() {
