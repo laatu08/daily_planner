@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <title>Daily Planner</title>
@@ -22,31 +23,97 @@
 
                     <table class="schedule-table">
                         <thead>
-                            <tr><th>Time</th><th>Task</th></tr>
+                            <tr>
+                                <th>Time</th>
+                                <th>Task</th>
+                            </tr>
                         </thead>
 
                         <tbody>
-                            <tr><td>6 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>7 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>8 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>9 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>10 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>11 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>12 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>1 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>2 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>3 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>4 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>5 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>6 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>7 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>8 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>9 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>10 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>11 pm</td><td contenteditable="true"></td></tr>
-                            <tr><td>12 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>1 am</td><td contenteditable="true"></td></tr>
-                            <tr><td>2 am</td><td contenteditable="true"></td></tr>
+                            <tr>
+                                <td>6 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>7 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>8 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>9 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>10 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>11 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>12 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>1 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>2 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>3 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>4 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>5 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>6 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>7 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>8 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>9 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>10 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>11 pm</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>12 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>1 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td>2 am</td>
+                                <td contenteditable="true"></td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -75,7 +142,17 @@
             </div>
         </div>
 
-        <button id="sendPlannerBtn" type="submit">Send Planner via Email</button>
+        <!-- BUTTON ROW -->
+        <div class="button-row">
+            <button id="sendPlannerBtn" type="submit" class="btn-primary">
+                Send Planner via Email
+            </button>
+
+            <button id="clearPlannerBtn" type="button" class="btn-danger">
+                Clear All Fields
+            </button>
+        </div>
+
     </form>
 
     <!-- JS -->
@@ -86,4 +163,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

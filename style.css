@@ -12,6 +12,7 @@ body {
 }
 
 .planner-container {
+  margin-top: 20px;
   background: url('/assets/pexels-eva-bronzini-5941766.jpg') no-repeat center center / cover;
   width: 1000px;
   padding: 20px;
@@ -36,7 +37,7 @@ input, textarea {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background: rgba(254, 255, 255, 0.4); /* make it slightly transparent */
+  background: rgba(254, 255, 255, 0.6); /* make it slightly transparent */
   box-sizing: border-box;
   backdrop-filter: blur(7px); 
   font-weight: bold;
@@ -80,7 +81,7 @@ textarea {
   table-layout: fixed;
   font-family: 'Poppins', sans-serif;
   flex: 1;
-  background: rgba(254, 255, 255, 0.4);
+  background: rgba(254, 255, 255, 0.6);
     backdrop-filter: blur(7px); 
 
 }
@@ -128,15 +129,59 @@ h2 {
   margin-bottom: 7px;
   margin-left: 10px;
   white-space: nowrap;
+  /* font-weight: bolder; */
+  font-size: 29px;
 }
 
 h1 {
   white-space: nowrap;
 }
 
-/* ===============================
-   📱 RESPONSIVE STYLES FOR MOBILE
-   =============================== */
+
+.button-row {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.03);
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+    transform: scale(1.03);
+}
+
+
+
 @media (max-width: 768px) {
   .planner-container {
     width: 95%;
@@ -144,7 +189,7 @@ h1 {
   }
 
   .section {
-    flex-direction: column;      /* ✅ stack left and right vertically */
+    flex-direction: column;     
   }
 
   .left-section,
@@ -153,7 +198,7 @@ h1 {
   }
 
   .schedule-table {
-    /* display: block;             ✅ allows horizontal scroll */
+    /* display: block;          
     /* overflow-x: auto; */
     white-space: nowrap;
     width: 100%;
@@ -197,7 +242,7 @@ h1 {
 
   .schedule-table th:first-child,
   .schedule-table td:first-child {
-    width: 60px; /* ✅ slightly smaller on very small screens */
+    width: 60px;
   }
 
   .schedule-table th,
@@ -206,3 +251,5 @@ h1 {
     padding: 5px;
   }
 }
+
+

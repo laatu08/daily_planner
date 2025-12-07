@@ -32,6 +32,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     await exportAndSend();
   });
+
+  const clearBtn = document.getElementById("clearPlannerBtn");
+
+  clearBtn.addEventListener("click", () => {
+    if (!confirm("Are you sure you want to clear everything?")) return;
+
+    // Clear localStorage
+    localStorage.clear();
+
+    // Clear all form fields
+    ['name', 'email', 'date', 'priorities', 'todo', 'notes', 'quote'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = "";
+    });
+
+    // Clear table cells
+    document.querySelectorAll("[contenteditable='true']").forEach(cell => {
+      cell.innerText = "";
+    });
+
+    console.log("All fields cleared.");
+  });
+
 });
 
 // ---- Upload + Screenshot Helper ----
