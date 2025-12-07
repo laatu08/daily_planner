@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Daily Planner</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <form id="plannerForm" onsubmit="return false;">
+        <div class="planner-container" id="planner">
+            <div class="header">
+                <h1>Daily Planner</h1>
+                <input type="text" id="name" placeholder="Your Name" />
+                <input type="email" id="email" placeholder="Your Email" />
+                <input type="date" id="date" />
+            </div>
+
+            <div class="section">
+                <div class="left-section">
+
+                    <table class="schedule-table">
+                        <thead>
+                            <tr><th>Time</th><th>Task</th></tr>
+                        </thead>
+
+                        <tbody>
+                            <tr><td>6 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>7 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>8 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>9 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>10 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>11 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>12 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>1 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>2 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>3 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>4 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>5 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>6 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>7 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>8 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>9 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>10 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>11 pm</td><td contenteditable="true"></td></tr>
+                            <tr><td>12 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>1 am</td><td contenteditable="true"></td></tr>
+                            <tr><td>2 am</td><td contenteditable="true"></td></tr>
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <h2>Quote of the Day</h2>
+                        <textarea id="quote" placeholder="Quote of the day"></textarea>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div>
+                        <h2>Priorities</h2>
+                        <textarea id="priorities" placeholder="Priorities"></textarea>
+                    </div>
+
+                    <div>
+                        <h2>To Do</h2>
+                        <textarea id="todo" placeholder="To Do"></textarea>
+                    </div>
+
+                    <div>
+                        <h2>Notes</h2>
+                        <textarea id="notes" placeholder="Notes"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="sendPlannerBtn" type="submit">Send Planner via Email</button>
+    </form>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
