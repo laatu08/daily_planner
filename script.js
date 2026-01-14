@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   loadQuoteOfTheDay();
-  // Handle form submit (NO reload)
+  // Handle form submit
   const form = document.getElementById("plannerForm");
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault();  // THE REAL FIX
+    e.preventDefault();
     console.log("Form submitted — no reload");
 
     await exportAndSend();
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Clear localStorage
     localStorage.clear();
 
-    // Clear all form fields
+    // Clear all form fields 
     ['name', 'email', 'date', 'priorities', 'todo', 'notes', 'quote'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.value = "";
@@ -81,7 +81,6 @@ function showToast(message) {
 async function loadQuoteOfTheDay() {
   const quoteField = document.getElementById("quote");
 
-  // Don't overwrite if user already added text
   if (localStorage.getItem("quote")) return;
 
   try {
@@ -159,7 +158,6 @@ async function fetchUrl() {
 }
 
 
-// ---- Email Sending Logic ----
 async function exportAndSend() {
   console.log("Running exportAndSend...");
   showLoading()
